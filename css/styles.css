@@ -1,0 +1,52 @@
+body {
+    background-color: #303030;
+}
+
+input[type=text] {
+    width: 75%;
+    height: 10%;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: lightblue;
+    border-radius: 5%;
+    border: 3px solid deepskyblue;
+}
+.container {
+    max-width: 600px;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 5px;
+    border: 2px solid dodgerblue;
+    font-size: 26px;
+    width: 120px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#outputValue {
+    text-align: right;
+    font-weight: bold;
+    font-size: 30px;
+    border-top: transparent;
+}
+
+#historyValue {
+    text-align: right;
+    font-size: 20px;
+    border-bottom: transparent;
+}
+
+#keyboard {
+    padding-top: 15px;
+}
+
+
