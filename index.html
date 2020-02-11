@@ -6,61 +6,61 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- CSS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 
-    <div class="container">
-        <div id="displayOutput" class="row col-12">
-            <input type="text" id="historyValue" value="0" disabled>
-            <input type="text" id="outputValue" value="0" disabled>
+    <div id="calculator" class="container">
+        <div class="row-fluid">
+            <input class="uneditable-input col-8" type="text" id="historyValue" value="0" disabled>
+        </div>
+
+        <div class="row-fluid">
+            <input class="uneditable-input col-8" type="text" id="outputValue" value="0" disabled>
         </div>
 
         <div id="keyboard">
-            <div class="row">
-                <button id="(" onclick="updateOutput('(')" class="btn btn-default btn-large col-3">(</button>
-                <button id=")" onclick="updateOutput(')')" class="btn btn-default btn-large col-3">)</button>
-                <button id="C" onclick="clearAll()" class="btn btn-default btn-large col-3">C</button>
-                <button id="CE" onclick="backspace()" class="btn btn-default btn-large col-3">CE</button>
+            <div class="row-fluid">
+                <button id="(" onclick="updateOutput('(')" class="btn btn-large col-2">(</button>
+                <button id=")" onclick="updateOutput(')')" class="btn btn-large col-2">)</button>
+                <button id="C" onclick="clearAll()" class="btn btn-large col-3 operator">C</button>
+                <button id="CE" onclick="backspace()" class="btn btn-large col-3 operator">CE</button>
             </div>
 
-            <div class="row">
-                <button id="7" onclick="updateOutput(7)" class="btn btn-default btn-large col-3">7</button>
-                <button id="8" onclick="updateOutput(8)" class="btn btn-default btn-large col-3">8</button>
-                <button id="9" onclick="updateOutput(9)" class="btn btn-default btn-large col-3">9</button>
-                <button id="/" onclick="updateOutput('/')" class="btn btn-default btn-large col-3">/</button>
+            <div class="row-fluid">
+                <button id="7" onclick="updateOutput(7)" class="btn btn-large col-2">7</button>
+                <button id="8" onclick="updateOutput(8)" class="btn btn-large col-2">8</button>
+                <button id="9" onclick="updateOutput(9)" class="btn btn-large col-2">9</button>
+                <button id="/" onclick="updateOutput('/')" class="btn btn-large col-4 operator">/</button>
             </div>
 
-            <div class="row">
-                <button id="4" onclick="updateOutput(4)" class="btn btn-default btn-large col-3">4</button>
-                <button id="5" onclick="updateOutput(5)" class="btn btn-default btn-large col-3">5</button>
-                <button id="6" onclick="updateOutput(6)" class="btn btn-default btn-large col-3">6</button>
-                <button id="*" onclick="updateOutput('*')" class="btn btn-default btn-large col-3">*</button>
+            <div class="row-fluid">
+                <button id="4" onclick="updateOutput(4)" class="btn btn-large col-2">4</button>
+                <button id="5" onclick="updateOutput(5)" class="btn btn-large col-2">5</button>
+                <button id="6" onclick="updateOutput(6)" class="btn btn-large col-2">6</button>
+                <button id="*" onclick="updateOutput('*')" class="btn btn-large col-4 operator">*</button>
             </div>
 
-            <div class="row">
-                <button id="1" onclick="updateOutput(1)" class="btn btn-default btn-large col-3">1</button>
-                <button id="2" onclick="updateOutput(2)" class="btn btn-default btn-large col-3">2</button>
-                <button id="3" onclick="updateOutput(3)" class="btn btn-default btn-large col-3">3</button>
-                <button id="-" onclick="updateOutput('-')" class="btn btn-default btn-large col-3">-</button>
+            <div class="row-fluid">
+                <button id="1" onclick="updateOutput(1)" class="btn btn-large col-2">1</button>
+                <button id="2" onclick="updateOutput(2)" class="btn btn-large col-2">2</button>
+                <button id="3" onclick="updateOutput(3)" class="btn btn-large col-2">3</button>
+                <button id="-" onclick="updateOutput('-')" class="btn btn-large col-4 operator">-</button>
             </div>
 
-            <div class="row">
-                <button id="0" onclick="updateOutput(0)" class="btn btn-default btn-large col-3">0</button>
-                <button id="." onclick="updateOutput('.')" class="btn btn-default btn-large col-3">.</button>
-                <button id="=" onclick="equals()" class="btn btn-default btn-large col-3">=</button>
-                <button id="+" onclick="updateOutput('+')" class="btn btn-default btn-large col-3">+</button>
+            <div class="row-fluid">
+                <button id="0" onclick="updateOutput(0)" class="btn btn-large col-2">0</button>
+                <button id="." onclick="updateOutput('.')" class="btn btn-large col-2">.</button>
+                <button id="=" onclick="equals()" class="btn btn-large col-2">=</button>
+                <button id="+" onclick="updateOutput('+')" class="btn btn-large col-4 operator">+</button>
             </div>
         </div>
     </div>
-
 </body>
 </html>
