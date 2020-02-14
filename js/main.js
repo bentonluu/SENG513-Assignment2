@@ -10,7 +10,7 @@ function updateOutput(value) {
     else {
         currentOutputValue = outputValue + value;
     }
-    console.log(currentOutputValue);
+
     document.getElementById("outputValue").value = currentOutputValue;
 }
 
@@ -20,17 +20,20 @@ function updateHistory(outputEquation) {
 }
 
 function backspace() {
-    let modifiedOutputValue = document.getElementById("outputValue").value.slice(0, -1);
+    let output = document.getElementById("outputValue").value;
 
-    if (modifiedOutputValue === "") {
-        document.getElementById("outputValue").value = "0";
-    }
-    else {
-        document.getElementById("outputValue").value = modifiedOutputValue;
-    }
+    if ((output.includes("Infinity") || output.includes("NaN") || output.includes("ERROR")) === false) {
+        let modifiedOutputValue = output.slice(0, -1);
 
-    currentOutputValue = modifiedOutputValue;
-    console.log(modifiedOutputValue);
+        if (modifiedOutputValue === "") {
+            document.getElementById("outputValue").value = "0";
+        }
+        else {
+            document.getElementById("outputValue").value = modifiedOutputValue;
+        }
+
+        currentOutputValue = modifiedOutputValue;
+    }
 }
 
 function clearAll() {
@@ -38,15 +41,19 @@ function clearAll() {
     document.getElementById("historyValue").value = "0";
 
     currentOutputValue = "";
-    currentHistoryValue = ""
+    currentHistoryValue = "";
 }
 
 function equals() {
     let outputEquation = document.getElementById("outputValue").value;
 
     try {
-        document.getElementById("outputValue").value = eval(outputEquation);
-        updateHistory(outputEquation)
+        let output = eval(outputEquation);
+        document.getElementById("outputValue").value = output;
+
+        if (output.toString().includes("NaN") === false) {
+            updateHistory(outputEquation);
+        }
     }
     catch (e) {
         document.getElementById("outputValue").value = "ERROR";
