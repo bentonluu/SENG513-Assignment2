@@ -1,5 +1,6 @@
 let currentOutputValue = "";
 let currentHistoryValue = "";
+let currentValue = "";
 
 function updateOutput(value) {
     let outputValue = document.getElementById("outputValue").value;
@@ -17,6 +18,19 @@ function updateOutput(value) {
 function updateHistory(outputEquation) {
     document.getElementById("historyValue").value = outputEquation
     currentHistoryValue = outputEquation;
+}
+
+function updateAns() {
+    let outputValue = document.getElementById("outputValue").value;
+
+    if (currentOutputValue === "" && currentValue != "") {
+        currentOutputValue = currentValue;
+        document.getElementById("outputValue").value = currentValue;
+    }
+    else if ((currentOutputValue || currentValue) != "" && currentOutputValue != ("NaN" || "ERROR")) {
+        currentOutputValue = outputValue + currentValue;
+        document.getElementById("outputValue").value = currentOutputValue;
+    }
 }
 
 function backspace() {
@@ -42,6 +56,7 @@ function clearAll() {
 
     currentOutputValue = "";
     currentHistoryValue = "";
+    currentValue = "";
 }
 
 function equals() {
@@ -52,6 +67,7 @@ function equals() {
         document.getElementById("outputValue").value = output;
 
         if (output.toString().includes("NaN") === false) {
+            currentValue = output;
             updateHistory(outputEquation);
         }
     }
